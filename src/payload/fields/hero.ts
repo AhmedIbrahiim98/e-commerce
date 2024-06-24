@@ -1,5 +1,6 @@
 import type { Field } from 'payload/types'
 
+import { CustomHero } from './../../app/_heros/CustomHero/index'
 import linkGroup from './linkGroup'
 import richText from './richText'
 import label from './richText/label'
@@ -33,6 +34,10 @@ export const hero: Field = {
           label: 'Low Impact',
           value: 'lowImpact',
         },
+        {
+          label: 'Custom Hero',
+          value: 'customHero',
+        },
       ],
     },
     richText({
@@ -52,7 +57,8 @@ export const hero: Field = {
       relationTo: 'media',
       required: true,
       admin: {
-        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact'].includes(type),
+        condition: (_, { type } = {}) =>
+          ['highImpact', 'mediumImpact', 'CustomHero'].includes(type),
       },
     },
   ],
